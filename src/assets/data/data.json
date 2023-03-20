@@ -1,0 +1,134 @@
+[{
+  "persona" : {
+    "name" : "Ramiro Hualpa",
+    "email" : "hualpusher@gmail.com",
+    "phone" : "519-999-9999",
+    "address" : "Calle 123, Mendoza, Argentina",
+    "profession" : "Software Engineer",
+    "aboutme" : "Soy estudiante de Programación, con un gran interés en el desarrollo FrontEnd y BackEnd.\n Con capacidad para aprender y aplicar mis conocimientos al ámbito profesional.\n En busca de una oportunidad laboral en la que desarrollar mis habilidades y adquirir experiencia.",
+    "experience" : [
+      {
+        "company" : "Coca-Cola",
+        "position" : "Desarrollador Web",
+        "from" : "2017-01-01",
+        "to" : "2017-12-31",
+        "description" : "Desarrollo de aplicaciones web para la empresa."
+      },
+      {
+        "company" : "Coca-Cola",
+        "position" : "Desarrollador Web",
+        "from" : "2017-01-01",
+        "to" : "2017-12-31",
+        "description" : "Desarrollo de aplicaciones web para la empresa."
+      }
+    ],
+    "education" : [
+      {
+        "institution" : "Universidad Tecnológica Nacional",
+        "degree" : "Técnicatura Universitaria en Programación",
+        "from" : "2021-01-01",
+        "to" : "2023-12-31",
+        "description" : "Fullstack Developer"
+      }
+    ],
+    "skills" : [
+      {
+        "name" : "HTML",
+        "level" : "90"
+      },
+      {
+        "name" : "CSS",
+        "level" : "80"
+      },
+      {
+        "name" : "JavaScript",
+        "level" : "70"
+      },
+      {
+        "name" : "React",
+        "level" : "60"
+      },
+      {
+        "name" : "Node",
+        "level" : "50"
+      },
+      {
+        "name" : "MongoDB",
+        "level" : "40"
+      }
+    ],
+    "soft-skills" : [
+      {
+        "name" : "Trabajo en equipo",
+        "level" : "100"
+      },
+      {
+        "name" : "Comunicación",
+        "level" : "90"
+      },
+      {
+        "name" : "Liderazgo",
+        "level" : "80"
+      },
+      {
+        "name" : "Creatividad",
+        "level" : "70"
+      },
+      {
+        "name" : "Resolución de problemas",
+        "level" : "60"
+      },
+      {
+        "name" : "Gestión del tiempo",
+        "level" : "50"
+      }
+    ],
+    "languages" : [
+      {
+        "name" : "Español",
+        "level" : "100"
+      },
+      {
+        "name" : "Inglés",
+        "level" : "80"
+      }
+    ],
+    "projects" : [
+      {
+        "name" : "Proyecto 1",
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nisl nisl aliquam nisl, vitae ultricies nisl nisl eget nisl. Donec auctor, nisl eget ultricies lacinia, nisl nisl aliquam nisl, vitae ultricies nisl nisl eget nisl.",
+        "url" : "#",
+        "image" : "../../../assets/img/header-bg-purple.jpg"
+      },
+      {
+        "name" : "Proyecto 2",
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nisl nisl aliquam nisl, vitae ultricies nisl nisl eget nisl. Donec auctor, nisl eget ultricies lacinia, nisl nisl aliquam nisl, vitae ultricies nisl nisl eget nisl.",
+        "url" : "#",
+        "image" : "../../../assets/img/header-bg-purple.jpg"
+      },
+      {
+        "name" : "Proyecto 3",
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nisl nisl aliquam nisl, vitae ultricies nisl nisl eget nisl. Donec auctor, nisl eget ultricies lacinia, nisl nisl aliquam nisl, vitae ultricies nisl nisl eget nisl.",
+        "url" : "#",
+        "image" : "../../../assets/img/header-bg-purple.jpg"
+      }
+    ],
+    "social" : [
+      {
+        "name" : "linkedin",
+        "url" : "https://www.linkedin.com/in/ramiro-hualpa-0b4b4b1b3/",
+        "icon" : "fab fa-linkedin-in"
+      },
+      {
+        "name" : "github",
+        "url" : "http://www.instagram.com/hualpusher",
+        "icon" : "fab fa-github"
+      },
+      {
+        "name" : "facebook",
+        "url" : "http://www.facebook.com/hualpusher",
+        "icon" : "fab fa-facebook-f"
+      }
+    ]
+  }
+}]

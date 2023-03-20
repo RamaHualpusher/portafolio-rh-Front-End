@@ -1,0 +1,17 @@
+.bg-img{
+    background-image: url(../../../assets/img/header-bg-purple.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    opacity: 0.8;
+    width: 100%;
+    position: relative;
+}
+.card{
+    width: 100%;
+    position: relative;
+    color: #fff;
+    padding: 2rem;
+    border-radius: 0px 0px calc(0.5rem - 1px) calc(0.5rem - 1px);
+}
