@@ -1,0 +1,33 @@
+<!-- education-edit-modal.component.html -->
+<div class="modal-backdrop">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ education ? 'Editar Educación' : 'Agregar Educación' }}</h5>
+        <button type="button" class="btn-close" (click)="onClose()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="institution" class="form-label">Institución</label>
+          <input type="text" class="form-control" id="institution" [(ngModel)]="editedEducation.institution">
+        </div>
+        <div class="mb-3">
+          <label for="degree" class="form-label">Título</label>
+          <input type="text" class="form-control" id="degree" [(ngModel)]="editedEducation.degree">
+        </div>
+        <div class="mb-3">
+          <label for="from" class="form-label">Desde</label>
+          <input type="date" class="form-control" id="from" [(ngModel)]="editedEducation.from">
+        </div>
+        <div class="mb-3">
+          <label for="to" class="form-label">Hasta</label>
+          <input type="date" class="form-control" id="to" [(ngModel)]="editedEducation.to">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onClose()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="onSave()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

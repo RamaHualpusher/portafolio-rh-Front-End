@@ -12,6 +12,11 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { AboutEditModalComponent } from './components/form/about-edit-modal/about-edit-modal.component';
+import { ExperienceEditModalComponent } from './components/form/experience-edit-modal/experience-edit-modal.component';
+import { EducationEditModalComponent } from './components/form/education-edit-modal/education-edit-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -24,11 +29,15 @@ import { LoginComponent } from './components/login/login.component';
     SkillsComponent,
     ProjectsComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    AboutEditModalComponent,
+    ExperienceEditModalComponent,
+    EducationEditModalComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

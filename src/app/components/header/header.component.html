@@ -1,34 +1,47 @@
+<!-- header.component.html -->
 <div class="container-fluid">
-    <div class="col-md-12">
-        <!--Imagen jumbotron con una imagen de fondo y al centro  un circulo con otra imagen-->
-        <div class="jumbotron jumbotron-fluid bg-img">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center mt-1">
-                        <img src="../../../assets/img/perfil.png" class="rounded-circle" alt="Cinque Terre" width="200"
-                            height="200">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h1 class="display-3"><b>Ramiro Hualpa</b></h1>
-                        <p class="lead">Desarrollador Web</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card text-white bg-secondary">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6 text-center">Contactos</div>
-                        <!--Separador en el centro-->
-                        <div class="col-md-6 text-center">Universidad</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="col-md-12">
+      <div class="jumbotron jumbotron-fluid bg-img">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12 text-center mt-1">
+                      <img src="../../../assets/img/perfil.png" class="rounded-circle" alt="Cinque Terre" width="200"
+                          height="200">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12 text-center">
+                      <h1 class="display-3"><b>{{ data.name }} {{ data.lastname }}</b></h1>
+                      <p class="lead">{{ data.profession }}</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card text-white bg-secondary">
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-md-6 text-center">
+                        <h4>Contactos</h4>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item bg-secondary">Email: {{ data.email }}</li>
+                          <li class="list-group-item bg-secondary">Teléfono: {{ data.phone }}</li>
+                          <li class="list-group-item bg-secondary">Dirección: {{ data.address }}</li>
+                        </ul>
+                      </div>
+                      <div class="col-md-6 text-center">
+                        <h4>Universidad</h4>
+                        <ul class="list-group list-group-flush">
+                          <li *ngFor="let edu of data.education" class="list-group-item bg-secondary">
+                            {{ edu.institution }} - {{ edu.degree }}
+                          </li>
+                        </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>

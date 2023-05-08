@@ -1,34 +1,34 @@
 <div class="container-fluid bg-primary mt-3">
-    <div class="row">
-        <div class="col-lg-12 mt-2">
-            <h3 class="text-center">Ramiro Hualpa</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 offset-md-1">
-            <h4 class="text-center">Contacto</h4>
-            <ul class="list-group">
-                <li class="list-group-item">Teléfono: <span>123123123</span></li>
-                <li class="list-group-item">Email: <span>example@mail.com</span></li>
-                <li class="list-group-item">Dirección: <span>Av. Siempre Viva 123</span></li>
-            </ul>
-        </div>
-        <div class="col-md-4 offset-md-1">
-            <h4 class="text-center">Redes Sociales</h4>
-            <ul class="list-group">
-                <a href="https://www.facebook.com/" target="_blank"><li class="list-group-item list-group-item-action"><i class="fab fa-facebook-square"></i><span> Ramiro Hualpa</span></li></a>
-                <a href="https://www.instagram.com/" target="_blank"><li class="list-group-item list-group-item-action"><i class="fab fa-instagram"></i><span> Ramiro Hualpa</span></li></a>
-                <a href="https://twitter.com/" target="_blank"><li class="list-group-item list-group-item-action"><i class="fab fa-twitter-square"></i><span> Ramiro Hualpa</span></li></a>
-                <a href="https://www.youtube.com/" target="_blank"><li class="list-group-item list-group-item-action"><i class="fab fa-youtube-square"></i><span> Ramiro Hualpa</span></li></a>
-                <a href="https://www.linkedin.com/" target="_blank"><li class="list-group-item list-group-item-action"><i class="fa-brands fa-linkedin"></i><span> Ramiro Hualpa</span></li></a>
-            </ul>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-lg-12 text-center">
-                <blockquote class="blockquote-footer">
-                  <p class="mb-0">Todos los derechos reservados © <cite title="Source Title">Hualpusher</cite></p>
-                </blockquote>
-        </div>
-    </div>
+  <div class="row">
+      <div class="col-lg-12 mt-2">
+          <h3 class="text-center">{{ data.name }} {{ data.lastname }}</h3>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4 offset-md-1">
+          <h4 class="text-center">Contacto</h4>
+          <ul class="list-group">
+              <li class="list-group-item">Teléfono: <span>{{ data.phone }}</span></li>
+              <li class="list-group-item">Email: <span>{{ data.email }}</span></li>
+              <li class="list-group-item">Dirección: <span>{{ data.address }}</span></li>
+          </ul>
+      </div>
+      <div class="col-md-4 offset-md-1">
+          <h4 class="text-center">Redes Sociales</h4>
+          <ul class="list-group">
+              <li class="list-group-item list-group-item-action" *ngFor="let social of data.social">
+                <a [href]="social.url" target="_blank">
+                  <i [class]="social.icon"></i><span> {{ data.name }} {{ data.lastname }}</span>
+                </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div class="row mt-3">
+      <div class="col-lg-12 text-center">
+              <blockquote class="blockquote-footer">
+                <p class="mb-0">Todos los derechos reservados © {{ currentYear }} <cite title="Source Title">{{ data.alias }}</cite></p>
+              </blockquote>
+      </div>
+  </div>
 </div>

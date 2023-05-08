@@ -1,0 +1,36 @@
+<div class="modal-backdrop">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ experience ? 'Editar Experiencia Laboral' : 'Agregar Experiencia Laboral' }}</h5>
+        <button type="button" class="btn-close" (click)="onClose()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="position" class="form-label">Cargo</label>
+          <input type="text" class="form-control" id="position" [(ngModel)]="editedExperience.position">
+        </div>
+        <div class="mb-3">
+          <label for="company" class="form-label">Empresa</label>
+          <input type="text" class="form-control" id="company" [(ngModel)]="editedExperience.company">
+        </div>
+        <div class="mb-3">
+          <label for="from" class="form-label">Desde</label>
+          <input type="date" class="form-control" id="from" [(ngModel)]="editedExperience.from">
+        </div>
+        <div class="mb-3">
+          <label for="to" class="form-label">Hasta</label>
+          <input type="date" class="form-control" id="to" [(ngModel)]="editedExperience.to">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Descripción</label>
+          <textarea class="form-control" id="description" rows="3" [(ngModel)]="editedExperience.description"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onClose()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="onSave()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

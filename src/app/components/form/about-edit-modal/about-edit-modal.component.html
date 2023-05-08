@@ -1,0 +1,22 @@
+<div class="modal d-block" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Sobre mi</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="onClose()"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="about-textarea" class="form-label">Texto</label>
+            <textarea [(ngModel)]="updatedAboutText" name="updatedAboutText" class="form-control" id="about-textarea" rows="3" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onClose()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="onSave()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

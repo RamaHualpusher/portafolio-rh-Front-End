@@ -1,5 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <span class="titulo titulo-navbar">{{title}}</span>
-    </div>
-  </nav>
+  <div class="container-fluid">
+    <span class="titulo titulo-navbar">{{title}}</span>
+    <!-- Agrega el botón de inicio de sesión aquí -->
+    <button
+  class="btn btn-secondary ml-auto"
+  routerLink="/login"
+  *ngIf="!isLoggedIn"
+>
+  Iniciar sesión
+</button>
+<!-- Agrega el botón de cerrar sesión aquí -->
+<button
+  class="btn btn-danger ml-2"
+  (click)="logout()"
+  *ngIf="isLoggedIn"
+>
+  Cerrar sesión
+</button>
+  </div>
+</nav>

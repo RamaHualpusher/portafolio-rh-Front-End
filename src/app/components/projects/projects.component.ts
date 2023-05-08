@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-projects',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent {
+  projects: any[];
 
+  constructor(private _dataService: DataService) {
+    this.projects = this._dataService.getData().projects;
+  }
 }
