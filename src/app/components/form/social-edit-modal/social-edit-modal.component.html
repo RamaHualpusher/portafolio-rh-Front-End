@@ -1,0 +1,27 @@
+<!-- social-edit-modal.component.html -->
+<div class="modal-backdrop">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ social ? 'Editar Red Social' : 'Agregar Red Social' }}</h5>
+        <button type="button" class="btn-close" (click)="onClose()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="social" class="form-label">Red Social</label>
+          <select class="form-control" id="social" [(ngModel)]="editedSocial.name" (change)="onSelectSocial($event)">
+            <option *ngFor="let option of socialOptions" [value]="option.name">{{ option.name }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="url" class="form-label">URL</label>
+          <input type="text" class="form-control" id="url" [(ngModel)]="editedSocial.url">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onClose()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="onSave()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -132,40 +132,44 @@
           "level": "50"
         }
       ]
-    }
-  ],
-  "languages": [
-    {
-      "id": 1,
-      "name": "Español",
-      "level": "100"
     },
     {
-      "id": 2,
-      "name": "Inglés",
-      "level": "80"
+      "type": "Idiomas",
+      "items": [
+        {
+          "id": 1,
+          "name": "Español",
+          "level": "100"
+        },
+        {
+          "id": 2,
+          "name": "Inglés",
+          "level": "80"
+        }
+      ]
     }
+
   ],
   "projects": [
     {
       "id": 1,
       "name": "Proyecto 1",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nisl nisl aliquam nisl, vitae ultricies nisl nisl eget nisl. Donec auctor, nisl eget ultricies lacinia, nisl nisl aliquam nisl, vitae ultricies nisl nisl eget nisl.",
-      "url": "#",
+      "url": "",
       "image": "../../../assets/img/header-bg-purple.jpg"
     },
     {
       "id": 2,
       "name": "Proyecto 2",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nisl nisl aliquam nisl, vitae ultricies nisl nisl eget nisl. Donec auctor, nisl eget ultricies lacinia, nisl nisl aliquam nisl, vitae ultricies nisl nisl eget nisl.",
-      "url": "#",
+      "url": "http://www.facebook.com/hualpusher",
       "image": "../../../assets/img/header-bg-purple.jpg"
     },
     {
       "id": 3,
       "name": "Proyecto 3",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nisl nisl aliquam nisl, vitae ultricies nisl nisl eget nisl. Donec auctor, nisl eget ultricies lacinia, nisl nisl aliquam nisl, vitae ultricies nisl nisl eget nisl.",
-      "url": "#",
+      "url": "http://www.instagram.com/hualpusher",
       "image": "../../../assets/img/header-bg-purple.jpg"
     }
   ],

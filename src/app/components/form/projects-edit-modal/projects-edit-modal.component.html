@@ -1,0 +1,30 @@
+<!-- project-edit-modal.component.html -->
+<div class="modal-backdrop">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ project ? 'Editar Proyecto' : 'Agregar Proyecto' }}</h5>
+        <button type="button" class="btn-close" (click)="onClose()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre del Proyecto</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="editedProject.name">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Descripción</label>
+          <input type="text" class="form-control" id="description" [(ngModel)]="editedProject.description">
+        </div>
+        <div class="mb-3">
+          <label for="url" class="form-label">URL del Proyecto</label>
+          <input type="text" class="form-control" id="url" [(ngModel)]="editedProject.url"> <!-- Agregado el campo 'url' -->
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onClose()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="onSave()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
