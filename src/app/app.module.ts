@@ -20,6 +20,8 @@ import { ProjectsEditModalComponent } from './components/form/projects-edit-moda
 import { FooterEditModalComponent } from './components/form/footer-edit-modal/footer-edit-modal.component';
 import { ContactEditModalComponent } from './components/form/contact-edit-modal/contact-edit-modal.component';
 import { SocialEditModalComponent } from './components/form/social-edit-modal/social-edit-modal.component';
+import { SkillEditModalComponent } from './components/form/skill-edit-modal/skill-edit-modal.component';
+import { HeaderEditComponent } from './components/form/header-edit/header-edit.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { SocialEditModalComponent } from './components/form/social-edit-modal/so
     ProjectsEditModalComponent,
     FooterEditModalComponent,
     ContactEditModalComponent,
-    SocialEditModalComponent
+    SocialEditModalComponent,
+    SkillEditModalComponent,
+    HeaderEditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,34 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
+
+interface PersonAboutme {
+  id: number;
+  aboutme: string;
+}
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent {
-  data: any;
-  isEditModalOpen: boolean = false;
-  aboutme: string;
+export class AboutComponent implements OnInit {
+  person: PersonAboutme | null = null;
+  isAboutModalOpen: boolean = false;
 
-  constructor(private _dataService: DataService) {
-    this.data = this._dataService.getData();
-    this.aboutme = this.data.aboutme;
+  constructor(private _dataService: DataService) {}
+
+  ngOnInit() {
+    this.person = this._dataService.getData();
   }
 
-  openEditModal() {
-    this.isEditModalOpen = true;
+  openAboutModal() {
+    this.isAboutModalOpen = true;
   }
 
-  saveEditedText(newText: string) {
-    this.aboutme = newText;
-    this.isEditModalOpen = false;
-    console.log(this.data.id)
-    console.log(this.aboutme);
-    console.log(newText)
+  saveAboutInfo(newAboutInfo: string) {
+    if (this.person) {
+      this.person = {
+        id: this.person.id,
+        aboutme: newAboutInfo
+      };
+    }
+    this.isAboutModalOpen = false;
   }
+
 
   closeModal() {
-    this.isEditModalOpen = false;
+    this.isAboutModalOpen = false;
   }
 }

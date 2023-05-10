@@ -6,18 +6,18 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./about-edit-modal.component.css']
 })
 export class AboutEditModalComponent implements OnInit {
-  @Input() aboutText: string = '';
+  @Input() aboutInfo: string | null = null;
   @Output() save = new EventEmitter<string>();
   @Output() close = new EventEmitter<void>();
 
-  updatedAboutText: string = '';
+  editedAboutInfo: string = '';
 
   ngOnInit() {
-    this.updatedAboutText = this.aboutText;
+    this.editedAboutInfo = this.aboutInfo || '';
   }
 
   onSave() {
-    this.save.emit(this.updatedAboutText);
+    this.save.emit(this.editedAboutInfo);
   }
 
   onClose() {

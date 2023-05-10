@@ -3,14 +3,18 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <h5 class="card-title">Hard and Soft Skills</h5>
+          <h5 class="card-title">Habilidades e Idiomas</h5>
         </div>
         <div class="card-body">
-          <div class="container" *ngFor="let skillType of skills">
-            <h2>{{ skillType.type }}</h2>
-            <ng-container *ngFor="let skill of skillType.items; let i = index">
+          <div class="container" *ngFor="let skillGroup of skillGroups">
+            <h2>{{ skillGroup.type }}</h2>
+            <button class="btn btn-primary mb-3" (click)="openSkillModal(skillGroup, null)">Agregar</button>
+            <ng-container *ngFor="let skill of skillGroup.items; let i = index">
               <div class="alert alert-dismissible alert-{{ getColor(i) }}">
                 <h4 class="alert-heading badge bg-{{ getColor(i) }}">{{ skill.name }}</h4>
+                <button class="btn btn-warning btn-sm me-2" (click)="openSkillModal(skillGroup, skill)">Editar</button>
+                <button class="btn btn-danger btn-sm" (click)="skill.id !== null ? deleteSkill(skillGroup, skill.id) : null">Eliminar</button>
+
                 <div class="progress">
                   <div class="progress-bar bg-{{ getColor(i) }}" role="progressbar" [style.width.%]="skill.level"></div>
                 </div>
@@ -21,4 +25,6 @@
       </div>
     </div>
   </div>
+  <app-skill-edit-modal *ngIf="isSkillModalOpen" [skill]="selectedSkill" (save)="saveSkill($event)" (close)="closeModal()"></app-skill-edit-modal>
 </div>
+

@@ -1,0 +1,33 @@
+<div class="modal-backdrop">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ person ? 'Editar información' : 'Agregar información' }}</h5>
+        <button type="button" class="btn-close" (click)="onClose()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="editedPerson.name">
+        </div>
+        <div class="mb-3">
+          <label for="lastname" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="lastname" [(ngModel)]="editedPerson.lastname">
+        </div>
+        <div class="mb-3">
+          <label for="profession" class="form-label">Profesión</label>
+          <input type="text" class="form-control" id="profession" [(ngModel)]="editedPerson.profession">
+        </div>
+        <div class="mb-3">
+          <label for="alias" class="form-label">Alias</label>
+          <input type="text" class="form-control" id="alias" [(ngModel)]="editedPerson.alias">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onClose()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="onSave()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

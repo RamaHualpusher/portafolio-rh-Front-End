@@ -1,14 +1,19 @@
+<!-- skill-edit-modal.component.html -->
 <div class="modal-backdrop">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">{{ aboutInfo ? 'Editar Sobre mi' : 'Agregar Sobre mi' }}</h5>
+        <h5 class="modal-title">{{ skill ? 'Editar Habilidad' : 'Agregar Habilidad' }}</h5>
         <button type="button" class="btn-close" (click)="onClose()"></button>
       </div>
       <div class="modal-body">
         <div class="mb-3">
-          <label for="aboutme" class="form-label">Sobre mi</label>
-          <textarea class="form-control"  id="aboutme" [(ngModel)]="editedAboutInfo" rows="25"></textarea>
+          <label for="name" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="editedSkill!.name">
+        </div>
+        <div class="mb-3">
+          <label for="level" class="form-label">Nivel</label>
+          <input type="number" class="form-control" id="level" [(ngModel)]="editedSkillLevel" min="0" max="100">
         </div>
       </div>
       <div class="modal-footer">
