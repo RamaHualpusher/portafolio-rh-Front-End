@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PersonHeader } from 'src/types/PersonHeader';
-
-
+import { DataService } from 'src/app/data.service';
+import { User } from 'src/types/User';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +8,9 @@ import { PersonHeader } from 'src/types/PersonHeader';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input() person: PersonHeader | null = null;
+  @Input() user: User | null = null;
   isHeaderModalOpen: boolean = false;
-
+  constructor(private dataService: DataService<User>){}
   ngOnInit() {
 
   }
@@ -20,13 +19,25 @@ export class HeaderComponent implements OnInit {
     this.isHeaderModalOpen = true;
   }
 
-  saveHeaderInfo(newPerson: PersonHeader) {
-    // if (this.person) {
-    //   this._dataService.updateData(this.person.id, newPerson).subscribe(data => {
-    //     this.person = data;
-    //   });
-    // }
-    // this.isHeaderModalOpen = false;
+  saveHeaderInfo(newHeaderInfo: User) {
+    if (this.user) {
+      const updatedUser: User = {
+        ...this.user,
+        name: newHeaderInfo.name,
+        lastname: newHeaderInfo.lastname,
+        profession: newHeaderInfo.profession,
+        alias: newHeaderInfo.alias,
+        phone: this.user.phone, // Se agregaron los campos faltantes
+        email: this.user.email,
+        address: this.user.address
+      };
+
+      this.dataService.updateData('user', this.user.id, updatedUser).subscribe(updatedUser => {
+        this.user = updatedUser;
+      });
+
+      this.isHeaderModalOpen = false;
+    }
   }
 
   closeModal() {

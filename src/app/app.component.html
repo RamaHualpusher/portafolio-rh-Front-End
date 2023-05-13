@@ -1,9 +1,9 @@
 <app-navbar [person]="user"></app-navbar>
 <router-outlet></router-outlet>
-<app-header [person]="user"></app-header>
-<app-about [person]="user"></app-about>
-<app-experience [experience]="user!.experience"></app-experience>
-<app-education [education]="user!.education"></app-education>
-<app-skills [skillGroups]="user!.skills"></app-skills>
-<app-projects [projects]="user!.projects"></app-projects>
-<app-footer [userContact]="user" [social]="user!.social"></app-footer>
+<app-header [user]="user"></app-header>
+<app-about [user]="user"></app-about>
+<app-experience [experience]="user!.experience" [userId]="userId"></app-experience>
+<app-education [education]="user!.education" [userId]="userId"></app-education>
+<app-skills [skillGroups]="user!.skills" [userId]="userId"></app-skills>
+<app-projects [projects]="user!.projects" [userId]="userId"></app-projects>
+<app-footer [user]="user" [social]="user!.social" ></app-footer>

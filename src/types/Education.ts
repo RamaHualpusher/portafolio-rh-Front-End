@@ -5,4 +5,5 @@ export interface Education {
   from: Date | null;
   to: Date | null;
   description: string;
+  userId: number;
 }

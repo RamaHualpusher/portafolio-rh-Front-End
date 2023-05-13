@@ -5,4 +5,5 @@ export interface Experience {
   from: Date | null;
   to: Date | null;
   description: string;
+  userId: number;
 }

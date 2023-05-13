@@ -9,10 +9,10 @@
         <div class="card-body">
           <div class="row">
             <div class="d-flex flex-wrap justify-content-around">
-              <div class="col-12" *ngIf="person">
+              <div class="col-12" *ngIf="user">
                 <div class="card m-3 border-primary">
                   <div class="card-body">
-                    <p *ngFor="let paragraph of person.aboutme.split('\n')">{{ paragraph }}</p>
+                    <p *ngFor="let paragraph of user.aboutme.split('\n')">{{ paragraph }}</p>
                   </div>
                 </div>
               </div>
@@ -22,5 +22,5 @@
       </div>
     </div>
   </div>
-  <app-about-edit-modal *ngIf="isAboutModalOpen" [aboutInfo]="person!.aboutme" (save)="saveAboutInfo($event)" (close)="closeModal()"></app-about-edit-modal>
+  <app-about-edit-modal *ngIf="isAboutModalOpen" [aboutInfo]="user!.aboutme" (save)="saveAboutInfo($event)" (close)="closeModal()"></app-about-edit-modal>
 </div>

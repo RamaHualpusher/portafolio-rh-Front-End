@@ -9,20 +9,15 @@ import { UserContact } from 'src/types/UserContact';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-
-
-
 export class FooterComponent implements OnInit{
-  @Input() userContact: UserContact | null = null;
-  @Input() social: Social[] = [];
+  @Input() user: User | null = null;
+  @Input() social: Social[] | null = null;
   currentYear: number;
   isContactModalOpen: boolean = false;
   isSocialModalOpen: boolean = false;
   selectedSocial: any = null;
 
-
-
-  constructor() {
+  constructor(private dataService: DataService<any>) {
     this.currentYear = new Date().getFullYear();
   }
 
@@ -38,7 +33,6 @@ export class FooterComponent implements OnInit{
     this.isSocialModalOpen = true;
   }
 
-
   closeContactModal() {
     this.isContactModalOpen = false;
   }
@@ -47,32 +41,43 @@ export class FooterComponent implements OnInit{
     this.isSocialModalOpen = false;
   }
 
-  saveContact(editedData: any) {
-    this.userContact!.phone = editedData.phone;
-    this.userContact!.email = editedData.email;
-    this.userContact!.address = editedData.address;
-    this.isContactModalOpen = false;
+  saveContact(editedData: UserContact) {
+    if (this.user) {
+      const updatedUser: User = {
+        ...this.user,
+        phone: editedData.phone,
+        email: editedData.email,
+        address: editedData.address
+      };
+
+      this.dataService.updateData('user', this.user.id, updatedUser).subscribe(updatedUser => {
+        this.user = updatedUser;
+      });
+
+      this.isContactModalOpen = false;
+    }
   }
 
   saveSocial(editedSocial: Social) {
+    editedSocial.userId = this.user?.id;
     if (editedSocial.id) {
-      const index = this.social.findIndex((social: Social) => social.id === editedSocial.id);
-      if (index !== -1) {
-        this.social[index] = editedSocial;
-      }
+      this.dataService.updateData('social', editedSocial.id, editedSocial).subscribe(updatedSocial => {
+        const index = this.social!.findIndex(social => social.id === updatedSocial.id);
+        if (index !== -1) {
+          this.social![index] = updatedSocial;
+        }
+      });
     } else {
-      editedSocial.id = this.social.length + 1;
-      this.social.push(editedSocial);
+      this.dataService.createData('social', editedSocial).subscribe(createdSocial => {
+        this.social!.push(createdSocial);
+      });
     }
     this.isSocialModalOpen = false;
   }
 
   deleteSocial(id: number) {
-    const index = this.social.findIndex((social: Social) => social.id === id);
-    if (index !== -1) {
-      this.social.splice(index, 1);
-    }
+    this.dataService.deleteData('social', id).subscribe(() => {
+      this.social = this.social!.filter(social => social.id !== id);
+    });
   }
-
-
 }

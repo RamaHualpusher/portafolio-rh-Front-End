@@ -10,8 +10,8 @@
         </div>
         <div class="row">
           <div class="col-md-12 text-center">
-            <h1 class="display-3"><b>{{ person?.name }} {{ person?.lastname }}</b></h1>
-            <p class="lead">{{ person?.profession }}</p>
+            <h1 class="display-3"><b>{{ user?.name }} {{ user?.lastname }}</b></h1>
+            <p class="lead">{{ user?.profession }}</p>
             <button class="btn btn-primary" (click)="openHeaderModal()">Editar</button>
           </div>
         </div>
@@ -19,4 +19,4 @@
     </div>
   </div>
 </div>
-<app-header-edit *ngIf="isHeaderModalOpen" [person]="person" (save)="saveHeaderInfo($event)" (close)="closeModal()"></app-header-edit>
+<app-header-edit *ngIf="isHeaderModalOpen" [person]="user" (save)="saveHeaderInfo($event)" (close)="closeModal()"></app-header-edit>

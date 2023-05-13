@@ -1,11 +1,6 @@
-// skill-edit-modal.component.ts
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Skill } from 'src/types/Skill';
 
-interface Skill {
-  id: number | null;
-  name: string;
-  level: string;
-}
 
 @Component({
   selector: 'app-skill-edit-modal',
@@ -18,27 +13,22 @@ export class SkillEditModalComponent implements OnInit {
   @Output() close = new EventEmitter<void>();
 
   editedSkill: Skill | null = null;
-  editedSkillLevel: number | null = null; // Add this line
 
   ngOnInit() {
-    this.editedSkill = this.skill ? JSON.parse(JSON.stringify(this.skill)) : this.createNewSkill();
-    this.editedSkillLevel = this.editedSkill ? parseInt(this.editedSkill.level) : null;
-    if (!this.editedSkill) {
-      return;
-    }
+    this.editedSkill = this.skill ? { ...this.skill } : this.createNewSkill();
   }
 
   createNewSkill(): Skill {
     return {
       id: null,
       name: '',
-      level: ''
+      level: 0, // level es un número, no un string
+      groupId: null // groupId es requerido en la interfaz Skill
     };
   }
 
   onSave() {
     if (this.editedSkill) {
-      this.editedSkill.level = this.editedSkillLevel!.toString();
       this.save.emit(this.editedSkill);
     }
   }

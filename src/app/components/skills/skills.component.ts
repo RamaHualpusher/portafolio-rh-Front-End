@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 import { SkillGroup } from 'src/types/SkillGroup';
 import { Skill } from 'src/types/Skill';
-
 
 @Component({
   selector: 'app-skills',
@@ -10,13 +10,14 @@ import { Skill } from 'src/types/Skill';
 })
 export class SkillsComponent implements OnInit {
   @Input() skillGroups: SkillGroup[] = [];
+  @Input() userId: number | null = null;
   selectedSkillGroup: SkillGroup | null = null;
   selectedSkill: Skill | null = null;
   isSkillModalOpen: boolean = false;
 
+  constructor(private dataService: DataService<Skill>) {}
 
   ngOnInit() {
-
   }
 
   getColor(index: number): string {
@@ -31,7 +32,9 @@ export class SkillsComponent implements OnInit {
   }
 
   deleteSkill(skillGroup: SkillGroup, id: number) {
-    skillGroup.items = skillGroup.items.filter(skill => skill.id !== id);
+    this.dataService.deleteData('skill', id).subscribe(() => {
+      skillGroup.items = skillGroup.items.filter(skill => skill.id !== id);
+    });
   }
 
   saveSkill(editedSkill: Skill) {
@@ -39,18 +42,21 @@ export class SkillsComponent implements OnInit {
       return;
     }
 
+    editedSkill.groupId = this.selectedSkillGroup.id;
     if (editedSkill.id) {
-      const index = this.selectedSkillGroup.items.findIndex(skill => skill.id === editedSkill.id);
-      if (index !== -1) {
-        this.selectedSkillGroup.items[index] = editedSkill;
-      }
+      this.dataService.updateData('skill', editedSkill.id, editedSkill).subscribe(updatedSkill => {
+        const index = this.selectedSkillGroup!.items.findIndex(skill => skill.id === editedSkill.id);
+        if (index !== -1) {
+          this.selectedSkillGroup!.items[index] = updatedSkill;
+        }
+      });
     } else {
-      editedSkill.id = this.selectedSkillGroup.items.length + 1;
-      this.selectedSkillGroup.items.push(editedSkill);
+      this.dataService.createData('skill', editedSkill).subscribe(createdSkill => {
+        this.selectedSkillGroup!.items.push(createdSkill);
+      });
     }
     this.isSkillModalOpen = false;
   }
-
 
   closeModal() {
     this.isSkillModalOpen = false;

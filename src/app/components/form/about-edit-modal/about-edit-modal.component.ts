@@ -1,3 +1,4 @@
+// about-edit-modal.component.ts
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -17,7 +18,13 @@ export class AboutEditModalComponent implements OnInit {
   }
 
   onSave() {
-    this.save.emit(this.editedAboutInfo);
+    // Verificación de campo no vacío
+    if(this.editedAboutInfo.trim() != ''){
+      this.save.emit(this.editedAboutInfo);
+    }
+    else{
+      alert("El campo no puede estar vacío");
+    }
   }
 
   onClose() {

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PersonHeader } from 'src/types/PersonHeader';
+import { User } from 'src/types/User';
 
 @Component({
   selector: 'app-header-edit',
@@ -7,16 +8,26 @@ import { PersonHeader } from 'src/types/PersonHeader';
   styleUrls: ['./header-edit.component.css']
 })
 export class HeaderEditComponent implements OnInit {
-  @Input() person: PersonHeader | null = null;
-  @Output() save = new EventEmitter<PersonHeader>();
+  @Input() person: User | null = null; // Modificado a User
+  @Output() save = new EventEmitter<User>();
   @Output() close = new EventEmitter<void>();
 
-  editedPerson: PersonHeader = {
+  editedPerson: User = {
     id: 0,
     name: '',
     lastname: '',
     profession: '',
-    alias: ''
+    alias: '',
+    phone: '',
+    email: '',
+    address: '',
+    imgProfile: '',
+    aboutme: '',
+    experience: [],
+    education: [],
+    skills: [],
+    projects: [],
+    social: []
   };
 
   ngOnInit() {

@@ -28,10 +28,26 @@ export class EducationEditModalComponent implements OnInit {
   }
 
   onSave() {
-    this.save.emit(this.editedEducation);
+    // Verificación de campo no vacío
+    if(this.editedEducation.institution.trim() != '' && this.editedEducation.degree.trim() != ''){
+      // Convirtiendo las fechas a formato MySQL
+      this.editedEducation.from = this.formatDate(this.editedEducation.from);
+      this.editedEducation.to = this.formatDate(this.editedEducation.to);
+
+      this.save.emit(this.editedEducation);
+    }
+    else{
+      alert("Los campos no pueden estar vacíos");
+    }
   }
 
   onClose() {
     this.close.emit();
+  }
+
+  // Función para convertir las fechas al formato MySQL
+  formatDate(date: string): string {
+    let newDate = new Date(date);
+    return newDate.getFullYear() + "-" + (newDate.getMonth() + 1).toString().padStart(2, '0') + "-" + newDate.getDate().toString().padStart(2, '0');
   }
 }

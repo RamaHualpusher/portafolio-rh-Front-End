@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 import { Experience } from 'src/types/Experience';
-
 
 @Component({
   selector: 'app-experience',
@@ -9,30 +9,40 @@ import { Experience } from 'src/types/Experience';
 })
 export class ExperienceComponent implements OnInit{
   @Input() experience: Experience[] = [];
+  @Input() userId: number | null = null;
   isExperienceModalOpen: boolean = false;
   selectedExperience: any = null;
+
+  constructor(private dataService: DataService<Experience>) {}
 
   ngOnInit() {
 
   }
+
   openExperienceModal(exp: any) {
     this.selectedExperience = exp;
     this.isExperienceModalOpen = true;
   }
 
   deleteExperience(id: number) {
-    this.experience = this.experience.filter(exp => exp.id !== id);
+    this.dataService.deleteData('experience', id).subscribe(() => {
+      this.experience = this.experience.filter(exp => exp.id !== id);
+    });
   }
 
   saveExperience(newExp: any) {
+    newExp.userId = this.userId;
     if (newExp.id) {
-      const index = this.experience.findIndex(exp => exp.id === newExp.id);
-      if (index !== -1) {
-        this.experience[index] = newExp;
-      }
+      this.dataService.updateData('experience', newExp.id, newExp).subscribe(updatedExp => {
+        const index = this.experience.findIndex(exp => exp.id === newExp.id);
+        if (index !== -1) {
+          this.experience[index] = updatedExp;
+        }
+      });
     } else {
-      newExp.id = this.experience.length + 1;
-      this.experience.push(newExp);
+      this.dataService.createData('experience', newExp).subscribe(createdExp => {
+        this.experience.push(createdExp);
+      });
     }
     this.isExperienceModalOpen = false;
   }

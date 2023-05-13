@@ -1,5 +1,6 @@
 export interface Skill {
-  id: number;
+  id: number | null;
   name: string;
   level: number;
+  groupId: number | null;
 }

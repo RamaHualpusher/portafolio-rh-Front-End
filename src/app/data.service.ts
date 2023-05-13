@@ -20,6 +20,13 @@ export class DataService<T> {
       })
     );
   }
+  createData(endpoint: string, data: any): Observable<T> {
+    return this.http.post<T>(`${this.apiUrl}/${endpoint}`, data).pipe(
+      tap(newData => {
+        this.dataSubject.next(newData);
+      })
+    );
+  }
 
   updateData(endpoint: string, id: number, data: any): Observable<T> {
     return this.http.put<T>(`${this.apiUrl}/${endpoint}/${id}`, data).pipe(
@@ -29,4 +36,23 @@ export class DataService<T> {
       })
     );
   }
+  // data.service.ts
+updateDataPatch(endpoint: string, id: number, data: any): Observable<T> {
+  return this.http.patch<T>(`${this.apiUrl}/${endpoint}/${id}`, data).pipe(
+    tap(updatedData => {
+      // Actualizamos la data almacenada
+      this.dataSubject.next(updatedData);
+    })
+  );
+}
+
+
+  deleteData(endpoint: string, id: number): Observable<T> {
+    return this.http.delete<T>(`${this.apiUrl}/${endpoint}/${id}`).pipe(
+      tap(deletedData => {
+        this.dataSubject.next(deletedData);
+      })
+    );
+  }
+
 }
