@@ -1,20 +1,20 @@
-import { Component } from '@angular/core';
-import { DataService } from 'src/app/data.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Experience } from 'src/types/Experience';
+
 
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.css']
 })
-export class ExperienceComponent {
-  experience: any[];
+export class ExperienceComponent implements OnInit{
+  @Input() experience: Experience[] = [];
   isExperienceModalOpen: boolean = false;
   selectedExperience: any = null;
 
-  constructor(private _dataService: DataService) {
-    this.experience = this._dataService.getData().experience;
-  }
+  ngOnInit() {
 
+  }
   openExperienceModal(exp: any) {
     this.selectedExperience = exp;
     this.isExperienceModalOpen = true;

@@ -1,13 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
-
-
-interface Social {
-  id: number;
-  name: string;
-  url: string;
-  icon: string;
-}
+import { Social } from 'src/types/Social';
+import { User } from 'src/types/User';
+import { UserContact } from 'src/types/UserContact';
 
 @Component({
   selector: 'app-footer',
@@ -17,8 +12,9 @@ interface Social {
 
 
 
-export class FooterComponent {
-  data: any;
+export class FooterComponent implements OnInit{
+  @Input() userContact: UserContact | null = null;
+  @Input() social: Social[] = [];
   currentYear: number;
   isContactModalOpen: boolean = false;
   isSocialModalOpen: boolean = false;
@@ -26,9 +22,11 @@ export class FooterComponent {
 
 
 
-  constructor(private _dataService: DataService) {
-    this.data = this._dataService.getData();
+  constructor() {
     this.currentYear = new Date().getFullYear();
+  }
+
+  ngOnInit() {
   }
 
   openContactModal() {
@@ -50,29 +48,29 @@ export class FooterComponent {
   }
 
   saveContact(editedData: any) {
-    this.data.phone = editedData.phone;
-    this.data.email = editedData.email;
-    this.data.address = editedData.address;
+    this.userContact!.phone = editedData.phone;
+    this.userContact!.email = editedData.email;
+    this.userContact!.address = editedData.address;
     this.isContactModalOpen = false;
   }
 
   saveSocial(editedSocial: Social) {
     if (editedSocial.id) {
-      const index = this.data.social.findIndex((social: Social) => social.id === editedSocial.id);
+      const index = this.social.findIndex((social: Social) => social.id === editedSocial.id);
       if (index !== -1) {
-        this.data.social[index] = editedSocial;
+        this.social[index] = editedSocial;
       }
     } else {
-      editedSocial.id = this.data.social.length + 1;
-      this.data.social.push(editedSocial);
+      editedSocial.id = this.social.length + 1;
+      this.social.push(editedSocial);
     }
     this.isSocialModalOpen = false;
   }
 
   deleteSocial(id: number) {
-    const index = this.data.social.findIndex((social: Social) => social.id === id);
+    const index = this.social.findIndex((social: Social) => social.id === id);
     if (index !== -1) {
-      this.data.social.splice(index, 1);
+      this.social.splice(index, 1);
     }
   }
 

@@ -1,13 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/data.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { PersonHeader } from 'src/types/PersonHeader';
 
-export interface Person {
-  id: number;
-  name: string;
-  lastname: string;
-  profession: string;
-  alias: string;
-}
+
 
 @Component({
   selector: 'app-header',
@@ -15,24 +9,24 @@ export interface Person {
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  person: Person | null = null;
+  @Input() person: PersonHeader | null = null;
   isHeaderModalOpen: boolean = false;
 
-  constructor(private _dataService: DataService) {}
-
   ngOnInit() {
-    this.person = this._dataService.getData();
+
   }
 
   openHeaderModal() {
     this.isHeaderModalOpen = true;
   }
 
-  saveHeaderInfo(newPerson: Person) {
-    if (this.person) {
-      this.person = newPerson;
-    }
-    this.isHeaderModalOpen = false;
+  saveHeaderInfo(newPerson: PersonHeader) {
+    // if (this.person) {
+    //   this._dataService.updateData(this.person.id, newPerson).subscribe(data => {
+    //     this.person = data;
+    //   });
+    // }
+    // this.isHeaderModalOpen = false;
   }
 
   closeModal() {

@@ -102,32 +102,32 @@
       "type": "Habilidades blandas",
       "items": [
         {
-          "id": 1,
+          "id": 7,
           "name": "Trabajo en equipo",
           "level": "100"
         },
         {
-          "id": 2,
+          "id": 8,
           "name": "Comunicación",
           "level": "90"
         },
         {
-          "id": 3,
+          "id": 9,
           "name": "Liderazgo",
           "level": "80"
         },
         {
-          "id": 4,
+          "id": 10,
           "name": "Creatividad",
           "level": "70"
         },
         {
-          "id": 5,
+          "id": 11,
           "name": "Resolución de problemas",
           "level": "60"
         },
         {
-          "id": 6,
+          "id": 12,
           "name": "Gestión del tiempo",
           "level": "50"
         }
@@ -137,12 +137,12 @@
       "type": "Idiomas",
       "items": [
         {
-          "id": 1,
+          "id": 13,
           "name": "Español",
           "level": "100"
         },
         {
-          "id": 2,
+          "id": 14,
           "name": "Inglés",
           "level": "80"
         }

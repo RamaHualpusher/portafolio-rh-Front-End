@@ -1,6 +1,8 @@
 // projects.component.ts
-import { Component } from '@angular/core';
-import { DataService } from 'src/app/data.service';
+import { Component, Input } from '@angular/core';
+import { Project } from 'src/types/Project';
+
+
 
 @Component({
   selector: 'app-projects',
@@ -8,12 +10,12 @@ import { DataService } from 'src/app/data.service';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent {
-  projects: any[];
+  @Input() projects: Project[] = [];
   isProjectModalOpen: boolean = false;
   selectedProject: any = null;
 
-  constructor(private _dataService: DataService) {
-    this.projects = this._dataService.getData().projects;
+
+  ngOnInit() {
   }
 
   openProjectModal(project: any) {

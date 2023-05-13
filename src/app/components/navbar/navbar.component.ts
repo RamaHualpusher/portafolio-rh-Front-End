@@ -1,20 +1,19 @@
-import { Component } from '@angular/core';
-import { DataService } from 'src/app/data.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { PersonHeader } from 'src/types/PersonHeader';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-  data: any;
-  title: string = '';
+export class NavbarComponent implements OnInit {
+  @Input() person: PersonHeader | null = null;
   isLoggedIn = false; // Para cambiar a true cuando el usuario inicia sesión
 
-  constructor(private _dataService: DataService) {
-    this.data = this._dataService.getData();
-    this.title = this.data.alias;
+  ngOnInit(): void {
   }
+
+
   logout() {
     console.log('Cerrar sesión');
     // Aquí, cierra la sesión y redirige al usuario a la página de inicio de sesión

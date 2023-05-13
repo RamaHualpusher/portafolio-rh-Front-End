@@ -1,19 +1,20 @@
 // education.component.ts
-import { Component } from '@angular/core';
-import { DataService } from 'src/app/data.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Education } from 'src/types/Education';
+
 
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.css']
 })
-export class EducationComponent {
-  education: any[];
+export class EducationComponent implements OnInit{
+  @Input() education: Education[] = [];
   isEducationModalOpen: boolean = false;
   selectedEducation: any = null;
 
-  constructor(private _dataService: DataService) {
-    this.education = this._dataService.getData().education;
+
+  ngOnInit(): void {
   }
 
   openEducationModal(edu: any) {

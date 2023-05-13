@@ -22,6 +22,7 @@ import { ContactEditModalComponent } from './components/form/contact-edit-modal/
 import { SocialEditModalComponent } from './components/form/social-edit-modal/social-edit-modal.component';
 import { SkillEditModalComponent } from './components/form/skill-edit-modal/skill-edit-modal.component';
 import { HeaderEditComponent } from './components/form/header-edit/header-edit.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { HeaderEditComponent } from './components/form/header-edit/header-edit.c
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

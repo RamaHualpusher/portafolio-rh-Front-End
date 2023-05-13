@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/data.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserAboutMe } from 'src/types/UserAboutMe';
 
-interface PersonAboutme {
-  id: number;
-  aboutme: string;
-}
 
 @Component({
   selector: 'app-about',
@@ -12,13 +8,10 @@ interface PersonAboutme {
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  person: PersonAboutme | null = null;
+  @Input() person: UserAboutMe | null = null;
   isAboutModalOpen: boolean = false;
 
-  constructor(private _dataService: DataService) {}
-
   ngOnInit() {
-    this.person = this._dataService.getData();
   }
 
   openAboutModal() {
@@ -34,6 +27,7 @@ export class AboutComponent implements OnInit {
     }
     this.isAboutModalOpen = false;
   }
+
 
 
   closeModal() {

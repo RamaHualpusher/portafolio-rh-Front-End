@@ -1,15 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import * as data from '../assets/data/data.json';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class DataService<T> {
+  private apiUrl = 'http://localhost:8080/api';
+  private dataSubject = new BehaviorSubject<T | null>(null);
+  data$: Observable<T | null> = this.dataSubject.asObservable();
 
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
+  getData(endpoint: string): Observable<T> {
+    return this.http.get<T>(`${this.apiUrl}/${endpoint}`).pipe(
+      tap(data => {
+        this.dataSubject.next(data);
+      })
+    );
+  }
 
-  getData(): any{
-    return data;
+  updateData(endpoint: string, id: number, data: any): Observable<T> {
+    return this.http.put<T>(`${this.apiUrl}/${endpoint}/${id}`, data).pipe(
+      tap(updatedData => {
+        // Actualizamos la data almacenada
+        this.dataSubject.next(updatedData);
+      })
+    );
   }
 }

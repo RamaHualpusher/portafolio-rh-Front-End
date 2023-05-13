@@ -1,17 +1,6 @@
-import { Component } from '@angular/core';
-import { DataService } from 'src/app/data.service';
-
-interface Skill {
-  id: number | null;
-  name: string;
-  level: string;
-}
-
-
-interface SkillGroup {
-  type: string;
-  items: Skill[];
-}
+import { Component, Input, OnInit } from '@angular/core';
+import { SkillGroup } from 'src/types/SkillGroup';
+import { Skill } from 'src/types/Skill';
 
 
 @Component({
@@ -19,15 +8,15 @@ interface SkillGroup {
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css']
 })
-export class SkillsComponent {
-  skillGroups: SkillGroup[] = [];
+export class SkillsComponent implements OnInit {
+  @Input() skillGroups: SkillGroup[] = [];
   selectedSkillGroup: SkillGroup | null = null;
   selectedSkill: Skill | null = null;
   isSkillModalOpen: boolean = false;
 
-  constructor(private _dataService: DataService) {
-    const data = this._dataService.getData();
-    this.skillGroups = data && data.skills ? data.skills : [];
+
+  ngOnInit() {
+
   }
 
   getColor(index: number): string {
