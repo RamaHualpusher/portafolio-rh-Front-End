@@ -16,7 +16,7 @@
                   <h2 class="card-title">{{ exp.company }}</h2>
                   <p class="card-text">Cargo: {{ exp.position }}</p>
                   <p class="card-text">Empresa: {{ exp.company }}</p>
-                  <p class="card-text">Período: {{ exp.from | date:'MMMM yyyy' }} - {{ exp.to ? (exp.to | date:'MMMM yyyy') : 'Actualidad' }}</p>
+                  <p class="card-text">Período: {{ exp.startDate | date:'MMMM yyyy' }} - {{ exp.endDate ? (exp.endDate | date:'MMMM yyyy') : 'Actualidad' }}</p>
                   <ul class="list-group">
                     <li class="list-group-item">{{ exp.description }}</li>
                   </ul>

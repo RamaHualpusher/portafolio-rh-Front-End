@@ -34,6 +34,20 @@ export class ExperienceComponent implements OnInit{
 
   saveExperience(newExp: any) {
     newExp.userId = this.userId;
+
+    if (newExp.startDate && !isNaN(new Date(newExp.startDate).valueOf())) {
+      newExp.startDate = newExp.startDate;
+    } else {
+      alert('Fecha de inicio es obligatoria y debe ser válida');
+      return;
+    }
+
+    if (newExp.endDate && !isNaN(new Date(newExp.endDate).valueOf())) {
+      newExp.endDate = newExp.endDate;
+    } else {
+      newExp.endDate = null;
+    }
+
     if (newExp.id) {
       this.dataService.updateData('experience', newExp.id, newExp).subscribe(updatedExp => {
         const index = this.experience.findIndex(exp => exp.id === newExp.id);
@@ -46,6 +60,7 @@ export class ExperienceComponent implements OnInit{
         this.experience.push(createdExp);
       });
     }
+
     this.isExperienceModalOpen = false;
   }
 

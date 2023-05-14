@@ -2,8 +2,8 @@ export interface Experience {
   id: number;
   company: string;
   position: string;
-  from: Date | null;
-  to: Date | null;
+  startDate: Date | null;
+  endDate: Date | null;
   description: string;
   userId: number;
 }
