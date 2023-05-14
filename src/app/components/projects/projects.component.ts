@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { Project } from 'src/types/Project';
 import { User } from 'src/types/User';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -12,6 +13,7 @@ import { User } from 'src/types/User';
 export class ProjectsComponent implements OnInit {
   @Input() projects: Project[] | undefined = [];
   @Input() userId: number | null = null;
+  @Input() isLoggedIn: boolean | null = null;
 
   isProjectModalOpen: boolean = false;
   selectedProject: any = null;

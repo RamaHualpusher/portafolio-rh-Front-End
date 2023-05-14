@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { Education } from 'src/types/Education';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-education',
@@ -10,6 +11,7 @@ import { Education } from 'src/types/Education';
 export class EducationComponent implements OnInit{
   @Input() education: Education[] = [];
   @Input() userId: number | null = null;
+  @Input() isLoggedIn: boolean | null = null;
   isEducationModalOpen: boolean = false;
   selectedEducation: any = null;
 

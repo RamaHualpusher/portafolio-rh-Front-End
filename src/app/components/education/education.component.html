@@ -5,7 +5,7 @@
       <div class="card">
         <div class="card-header">
           <h5 class="card-title">Educación</h5>
-          <button class="btn btn-primary float-end" (click)="openEducationModal(null)">Agregar</button>
+          <button class="btn btn-primary float-end" *ngIf="isLoggedIn" (click)="openEducationModal(null)">Agregar</button>
         </div>
         <div class="card-body">
           <ul class="d-flex flex-wrap list-group">
@@ -16,8 +16,8 @@
                 <p>Período: {{ edu.from | date:'yyyy' }}-{{ edu.to | date:'yyyy' }}</p>
               </div>
               <div>
-                <button class="btn btn-warning btn-sm me-2" (click)="openEducationModal(edu)">Editar</button>
-                <button class="btn btn-danger btn-sm" (click)="deleteEducation(edu.id)">Eliminar</button>
+                <button class="btn btn-warning btn-sm me-2" *ngIf="isLoggedIn" (click)="openEducationModal(edu)">Editar</button>
+                <button class="btn btn-danger btn-sm" *ngIf="isLoggedIn" (click)="deleteEducation(edu.id)">Eliminar</button>
               </div>
             </li>
           </ul>

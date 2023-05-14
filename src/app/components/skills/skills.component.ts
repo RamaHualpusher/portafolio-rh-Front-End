@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { SkillGroup } from 'src/types/SkillGroup';
 import { Skill } from 'src/types/Skill';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-skills',
@@ -11,6 +12,7 @@ import { Skill } from 'src/types/Skill';
 export class SkillsComponent implements OnInit {
   @Input() skillGroups: SkillGroup[] = [];
   @Input() userId: number | null = null;
+  @Input() isLoggedIn: boolean | null = null;
   selectedSkillGroup: SkillGroup | null = null;
   selectedSkill: Skill | null = null;
   isSkillModalOpen: boolean = false;

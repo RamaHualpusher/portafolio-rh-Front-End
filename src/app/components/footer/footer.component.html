@@ -7,7 +7,7 @@
               <li class="list-group-item">Email: <span>{{ user!.email }}</span></li>
               <li class="list-group-item">Dirección: <span>{{ user!.address }}</span></li>
           </ul>
-          <button class="btn btn-warning btn-sm mt-2 w-100" (click)="openContactModal()">Editar</button>
+          <button class="btn btn-warning btn-sm mt-2 w-100" *ngIf="isLoggedIn" (click)="openContactModal()">Editar</button>
         </div>
         <div class="col-md-4 offset-md-1">
             <h4 class="text-center">Redes Sociales</h4>
@@ -16,11 +16,11 @@
                   <a [href]="social.url" target="_blank">
                     <i [class]="social.icon"></i><span> {{ social!.name }}</span>
                   </a>
-                  <button class="btn btn-warning btn-sm me-2" (click)="openSocialModal(social)">Editar</button>
-                  <button class="btn btn-danger btn-sm" (click)="deleteSocial(social.id)">Eliminar</button>
+                  <button class="btn btn-warning btn-sm me-2" *ngIf="isLoggedIn" (click)="openSocialModal(social)">Editar</button>
+                  <button class="btn btn-danger btn-sm" *ngIf="isLoggedIn" (click)="deleteSocial(social.id)">Eliminar</button>
                 </li>
             </ul>
-            <button class="btn btn-danger btn-sm mt-2 w-100" (click)="openSocialModal(null)">Agregar</button>
+            <button class="btn btn-danger btn-sm mt-2 w-100" *ngIf="isLoggedIn" (click)="openSocialModal(null)">Agregar</button>
         </div>
     </div>
     <div class="row mt-3">

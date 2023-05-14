@@ -3,6 +3,7 @@ import { DataService } from 'src/app/data.service';
 import { Social } from 'src/types/Social';
 import { User } from 'src/types/User';
 import { UserContact } from 'src/types/UserContact';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-footer',
@@ -12,6 +13,7 @@ import { UserContact } from 'src/types/UserContact';
 export class FooterComponent implements OnInit{
   @Input() user: User | null = null;
   @Input() social: Social[] | null = null;
+  @Input() isLoggedIn: boolean | null = null;
   currentYear: number;
   isContactModalOpen: boolean = false;
   isSocialModalOpen: boolean = false;

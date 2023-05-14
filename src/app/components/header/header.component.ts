@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { User } from 'src/types/User';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,7 @@ import { User } from 'src/types/User';
 })
 export class HeaderComponent implements OnInit {
   @Input() user: User | null = null;
+  @Input() isLoggedIn: boolean | null = null;
   isHeaderModalOpen: boolean = false;
   constructor(private dataService: DataService<User>){}
   ngOnInit() {

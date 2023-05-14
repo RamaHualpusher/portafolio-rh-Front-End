@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-header">
           <h5 class="card-title">Sobre mi</h5>
-          <button class="btn btn-primary float-end" (click)="openAboutModal()">Editar</button>
+          <button class="btn btn-primary float-end" *ngIf="isLoggedIn" (click)="openAboutModal()">Editar</button>
         </div>
         <div class="card-body">
           <div class="row">

@@ -22,7 +22,8 @@ import { ContactEditModalComponent } from './components/form/contact-edit-modal/
 import { SocialEditModalComponent } from './components/form/social-edit-modal/social-edit-modal.component';
 import { SkillEditModalComponent } from './components/form/skill-edit-modal/skill-edit-modal.component';
 import { HeaderEditComponent } from './components/form/header-edit/header-edit.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptorService } from './auth-interceptor.service';
 
 
 @NgModule({
@@ -53,7 +54,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true } // Aquí se agrega el interceptor
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

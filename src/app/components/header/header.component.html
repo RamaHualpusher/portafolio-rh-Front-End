@@ -12,7 +12,7 @@
           <div class="col-md-12 text-center">
             <h1 class="display-3"><b>{{ user?.name }} {{ user?.lastname }}</b></h1>
             <p class="lead">{{ user?.profession }}</p>
-            <button class="btn btn-primary" (click)="openHeaderModal()">Editar</button>
+            <button class="btn btn-primary" *ngIf="isLoggedIn" (click)="openHeaderModal()">Editar</button>
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
 <app-navbar [person]="user"></app-navbar>
 <router-outlet></router-outlet>
-<app-header [user]="user"></app-header>
-<app-about [user]="user"></app-about>
-<app-experience [experience]="user!.experience" [userId]="userId"></app-experience>
-<app-education [education]="user!.education" [userId]="userId"></app-education>
-<app-skills [skillGroups]="user!.skills" [userId]="userId"></app-skills>
-<app-projects [projects]="user!.projects" [userId]="userId"></app-projects>
-<app-footer [user]="user" [social]="user!.social" ></app-footer>
+<app-header [user]="user" [isLoggedIn]="isLoggedIn$ | async"></app-header>
+<app-about [user]="user" [isLoggedIn]="isLoggedIn$ | async"></app-about>
+<app-experience [experience]="user!.experience" [userId]="userId" [isLoggedIn]="isLoggedIn$ | async"></app-experience>
+<app-education [education]="user!.education" [userId]="userId" [isLoggedIn]="isLoggedIn$ | async"></app-education>
+<app-skills [skillGroups]="user!.skills" [userId]="userId" [isLoggedIn]="isLoggedIn$ | async"></app-skills>
+<app-projects [projects]="user!.projects" [userId]="userId" [isLoggedIn]="isLoggedIn$ | async"></app-projects>
+<app-footer [user]="user" [social]="user!.social" [isLoggedIn]="isLoggedIn$ | async"></app-footer>

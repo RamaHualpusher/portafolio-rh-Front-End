@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { Experience } from 'src/types/Experience';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-experience',
@@ -10,6 +11,7 @@ import { Experience } from 'src/types/Experience';
 export class ExperienceComponent implements OnInit{
   @Input() experience: Experience[] = [];
   @Input() userId: number | null = null;
+  @Input() isLoggedIn: boolean | null = null;
   isExperienceModalOpen: boolean = false;
   selectedExperience: any = null;
 

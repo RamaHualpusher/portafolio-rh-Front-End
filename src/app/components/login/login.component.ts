@@ -1,5 +1,9 @@
+// login.component.ts
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth-service.service';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -7,18 +11,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  email = '';
+  username = '';
   password = '';
+  private destroy$ = new Subject<void>();
 
-  constructor() {}
-
-  login() {
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
-    // Aquí llamarás al servicio de autenticación una vez que lo hayas creado
+  constructor(private authService: AuthService, private router: Router) {
+    this.authService.isLoggedIn.pipe(takeUntil(this.destroy$)).subscribe(
+      isLoggedIn => {
+        if (isLoggedIn) {
+          this.router.navigateByUrl('/');
+          alert('Inicio de sesión exitoso');
+        }
+      },
+      error => console.error('Inicio de sesión fallido', error)
+    );
   }
+
+  login(event: Event) {
+    event.preventDefault();
+    this.authService.login(this.username, this.password).subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
   cancel() {
-    console.log('Cancelar');
-    // Aquí, redirige al usuario a la página de inicio o a la página anterior
+    // Redirige al usuario a la página de inicio
+    this.router.navigateByUrl('/');
   }
 }
