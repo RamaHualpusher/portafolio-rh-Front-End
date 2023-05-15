@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
   user: User | null = null;
   userId: number = 4;
+  isLoading: boolean = true; // nueva variable de estado
   constructor(private dataService: DataService<User>, private authService: AuthService) {
     this.isLoggedIn$ = this.authService.isLoggedIn;
   }
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
     this.dataService.getData('user/'+this.userId)
       .subscribe(user => {
         this.user = user;
+        this.isLoading = false; // establecer isLoading en false cuando los datos se hayan cargado
       });
   }
 }
