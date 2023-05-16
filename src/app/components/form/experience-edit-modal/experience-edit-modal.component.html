@@ -8,23 +8,23 @@
       <div class="modal-body">
         <div class="mb-3">
           <label for="position" class="form-label">Cargo</label>
-          <input type="text" class="form-control" id="position" [(ngModel)]="editedExperience.position">
+          <input type="text" class="form-control" id="position" [(ngModel)]="editedExperience.position" required>
         </div>
         <div class="mb-3">
           <label for="company" class="form-label">Empresa</label>
-          <input type="text" class="form-control" id="company" [(ngModel)]="editedExperience.company">
+          <input type="text" class="form-control" id="company" [(ngModel)]="editedExperience.company" required>
         </div>
         <div class="mb-3">
           <label for="startDate" class="form-label">Desde</label>
-          <input type="date" class="form-control" id="startDate" [(ngModel)]="editedExperience.startDate">
+          <input type="date" class="form-control" id="startDate" [(ngModel)]="editedExperience.startDate" required>
         </div>
         <div class="mb-3">
-          <label for="endDate" class="form-label">Hasta</label>
+          <label for="endDate" class="form-label">Hasta <small class="text-muted">(opcional)</small></label>
           <input type="date" class="form-control" id="endDate" [(ngModel)]="editedExperience.endDate">
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Descripción</label>
-          <textarea class="form-control" id="description" rows="3" [(ngModel)]="editedExperience.description"></textarea>
+          <textarea class="form-control" id="description" rows="3" [(ngModel)]="editedExperience.description" required></textarea>
         </div>
       </div>
       <div class="modal-footer">

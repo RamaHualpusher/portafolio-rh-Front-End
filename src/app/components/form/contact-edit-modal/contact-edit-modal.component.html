@@ -9,15 +9,15 @@
       <div class="modal-body">
         <div class="mb-3">
           <label for="phone" class="form-label">Teléfono</label>
-          <input type="text" class="form-control" id="phone" [(ngModel)]="editedData.phone">
+          <input type="text" class="form-control" id="phone" [(ngModel)]="editedData.phone" required>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="text" class="form-control" id="email" [(ngModel)]="editedData.email">
+          <input type="text" class="form-control" id="email" [(ngModel)]="editedData.email" required>
         </div>
         <div class="mb-3">
           <label for="address" class="form-label">Dirección</label>
-          <input type="text" class="form-control" id="address" [(ngModel)]="editedData.address">
+          <input type="text" class="form-control" id="address" [(ngModel)]="editedData.address" required>
         </div>
       </div>
       <div class="modal-footer">

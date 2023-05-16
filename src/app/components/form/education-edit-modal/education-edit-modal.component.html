@@ -9,18 +9,18 @@
       <div class="modal-body">
         <div class="mb-3">
           <label for="institution" class="form-label">Institución</label>
-          <input type="text" class="form-control" id="institution" [(ngModel)]="editedEducation.institution">
+          <input type="text" class="form-control" id="institution" [(ngModel)]="editedEducation.institution" required>
         </div>
         <div class="mb-3">
           <label for="degree" class="form-label">Título</label>
-          <input type="text" class="form-control" id="degree" [(ngModel)]="editedEducation.degree">
+          <input type="text" class="form-control" id="degree" [(ngModel)]="editedEducation.degree" required>
         </div>
         <div class="mb-3">
           <label for="startDate" class="form-label">Desde</label>
-          <input type="date" class="form-control" id="startDate" [(ngModel)]="editedEducation.startDate">
+          <input type="date" class="form-control" id="startDate" [(ngModel)]="editedEducation.startDate" required>
         </div>
         <div class="mb-3">
-          <label for="endDate" class="form-label">Hasta</label>
+          <label for="endDate" class="form-label">Hasta <small class="text-muted">(opcional)</small></label>
           <input type="date" class="form-control" id="endDate" [(ngModel)]="editedEducation.endDate">
         </div>
       </div>

@@ -9,14 +9,14 @@
       <div class="modal-body">
         <div class="mb-3">
           <label for="name" class="form-label">Nombre del Proyecto</label>
-          <input type="text" class="form-control" id="name" [(ngModel)]="editedProject.name">
+          <input type="text" class="form-control" id="name" [(ngModel)]="editedProject.name"required>
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Descripción</label>
-          <input type="text" class="form-control" id="description" [(ngModel)]="editedProject.description">
+          <input type="text" class="form-control" id="description" [(ngModel)]="editedProject.description" required>
         </div>
         <div class="mb-3">
-          <label for="url" class="form-label">URL del Proyecto</label>
+          <label for="url" class="form-label">URL del Proyecto <small class="text-muted">(opcional)</small></label>
           <input type="text" class="form-control" id="url" [(ngModel)]="editedProject.url"> <!-- Agregado el campo 'url' -->
         </div>
       </div>

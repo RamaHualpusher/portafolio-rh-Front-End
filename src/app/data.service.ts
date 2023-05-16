@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataService<T> {
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = 'https://portfolio-rh.onrender.com/api';
   private dataSubject = new BehaviorSubject<T | null>(null);
   data$: Observable<T | null> = this.dataSubject.asObservable();
 

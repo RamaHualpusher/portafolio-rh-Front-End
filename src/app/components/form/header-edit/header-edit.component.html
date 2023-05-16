@@ -8,19 +8,19 @@
       <div class="modal-body">
         <div class="mb-3">
           <label for="name" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="name" [(ngModel)]="editedPerson.name">
+          <input type="text" class="form-control" id="name" [(ngModel)]="editedPerson.name" required>
         </div>
         <div class="mb-3">
           <label for="lastname" class="form-label">Apellido</label>
-          <input type="text" class="form-control" id="lastname" [(ngModel)]="editedPerson.lastname">
+          <input type="text" class="form-control" id="lastname" [(ngModel)]="editedPerson.lastname" required>
         </div>
         <div class="mb-3">
           <label for="profession" class="form-label">Profesión</label>
-          <input type="text" class="form-control" id="profession" [(ngModel)]="editedPerson.profession">
+          <input type="text" class="form-control" id="profession" [(ngModel)]="editedPerson.profession" required>
         </div>
         <div class="mb-3">
           <label for="alias" class="form-label">Alias</label>
-          <input type="text" class="form-control" id="alias" [(ngModel)]="editedPerson.alias">
+          <input type="text" class="form-control" id="alias" [(ngModel)]="editedPerson.alias" required>
         </div>
 
       </div>
