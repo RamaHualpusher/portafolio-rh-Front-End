@@ -23,7 +23,7 @@ export class AuthService {
     localStorage.setItem(this.credentialsKey, credentials);
 
     const user = { username, password };
-    return this.http.post('http://localhost:8080/api/user/login', user).pipe(
+    return this.http.post('https://portfolio-rh.onrender.com/api/user/login', user).pipe(
       tap(() => this._isLoggedIn.next(true)),
       catchError((error) => {
         localStorage.removeItem(this.credentialsKey);
